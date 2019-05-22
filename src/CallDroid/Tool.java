@@ -31,8 +31,6 @@ public class Tool extends Get_Feature {
 	public static void main(String[] args) throws IOException {
 		Compare_Algorithm compare = new Compare_Algorithm();
 		Get_File list = new Get_File();
-		//String ori_path = "D:\\Kbc_OSS_Tool\\apk_test\\";
-		//String obf_path = "D:\\Kbc_OSS_Tool\\apk_test_obf\\";
 		
 		String ori_path = args[0] + "\\";
 		String obf_path = args[1] + "\\";
@@ -139,7 +137,6 @@ public class Tool extends Get_Feature {
 		int cop_count = 0;
 		
 		System.out.println("===== CallDroid LCS result ====");
-		// System.out.println("LCS : " +lcs.distance(s1, s2));
 		for(int i = 0; i < ori_list.length; i++) {
 			for(int j = 0; j < obf_list.length; j++) {
 				
@@ -149,10 +146,7 @@ public class Tool extends Get_Feature {
 				float thres = 0.5f;
 				float result = 0;
 				result = compare.simScore(ori_str[i], obf_str[j]);
-				
-				//System.out.println(ori_list[i] + ": " + ori_str[i].IM_size);
-				//System.out.println(obf_list[j] + ": " + obf_str[j].IM_size);
-				
+
 				if((ori_list[i].contains(parse[0])) && result >= thres) {					
 					tp += 1.0;
 				}
