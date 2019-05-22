@@ -92,9 +92,9 @@ public class Tool extends Get_Feature {
 				for (int k = 1; k < obf_str[i].feature[j].length; k++) {
 					obf_class[obf_cIndex].apkName = obf_list[i];
 					int tmp = obf_str[i].feature[j][0].length();
-					//if(obf_class[j].className == "" ) {
+				
 						obf_class[obf_cIndex].className = obf_str[i].feature[j][0].substring(0, tmp - 6);
-					//}
+					
 					obf_class[obf_cIndex].feature += obf_str[i].feature[j][k] + "\n";
 				}
 				obf_cIndex += 1;
@@ -107,9 +107,9 @@ public class Tool extends Get_Feature {
 				for (int k = 1; k < ori_str[i].feature[j].length; k++) {
 					ori_class[ori_cIndex].apkName = ori_list[i];
 					int tmp = ori_str[i].feature[j][0].length();
-					//if(obf_class[j].className == "" ) {
+					
 						ori_class[ori_cIndex].className = ori_str[i].feature[j][0].substring(0, tmp - 6);
-					//}
+					
 					ori_class[ori_cIndex].feature += ori_str[i].feature[j][k] + "\n";
 				}
 				ori_cIndex += 1;
