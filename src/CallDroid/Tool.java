@@ -118,17 +118,7 @@ public class Tool extends Get_Feature {
 			}
 			ori_cSize += ori_str[i].feature.length;
 		}
-		/*
-		
-		for(int i = 0; i < 10; i++) {
-			String tmp1[] = ori_class[i].feature.split("\\n");
-			String tmp2[] = obf_class[i].feature.split("\\n");
-			System.out.println(ori_class[i].className);
-			System.out.println(tmp1[0]);
-			System.out.println(obf_class[i].className);
-			System.out.println(tmp2[0]);
-			System.out.println("=================");
-		}*/
+
 		
 		int set_size = obf_list.length;
 		int all_count = 0;
@@ -145,8 +135,9 @@ public class Tool extends Get_Feature {
 		float sum_rc = 0;
 
 		int same_c = 0;	
+		int check = 0;
+		int cop_count = 0;
 		
-		/*
 		System.out.println("===== CallDroid LCS result ====");
 		// System.out.println("LCS : " +lcs.distance(s1, s2));
 		for(int i = 0; i < ori_list.length; i++) {
@@ -169,6 +160,11 @@ public class Tool extends Get_Feature {
 					fn += 1.0;			
 				}
 				else if(!ori_list[i].contains(parse[0]) && result >= thres) {
+					cop_count += 1;
+					String cur = Integer.toString(cop_count);
+					String ori = ori_list[i];
+					String cop = obf_list[j];
+					data[(int) fp] = cur + "," + ori + "," + cop;
 					fp += 1.0;
 				}		
 				else if(!ori_list[i].contains(parse[0]) && result < thres) {						
@@ -177,12 +173,13 @@ public class Tool extends Get_Feature {
 				result = (float) 0.0;											
 			}			
 		}
-		*/
-		// Class Detection Option
-		int check = 0;
-		int cop_count = 0;
+		
+		
+		
 		info.debatty.java.stringsimilarity.MetricLCS lcs = 
 			    new info.debatty.java.stringsimilarity.MetricLCS();
+		/*
+		//Class Detection Option
 		System.out.println("===== CallDroid Class Option LCS result ====");
 		System.out.println(ori_cSize);
 		System.out.println(obf_cSize);
@@ -231,11 +228,7 @@ public class Tool extends Get_Feature {
 						tn += 1;
 					}
 					else if (result >= thres) {
-						/*
-						System.out.println("APK = " + ori_class[i].apkName + " || " + obf_class[j].apkName);
-						System.out.println("Class = " + ori_class[i].className + " || " + obf_class[j].className);
-						System.out.println(result);
-						System.out.println("========================");*/
+
 						cop_count += 1;
 						String cur = Integer.toString(cop_count);
 						String ori = ori_list[i];
@@ -250,6 +243,7 @@ public class Tool extends Get_Feature {
 			}
 		}
 		System.out.println(check);
+		*/
 		ac = (float)((tp + tn) / (tp + tn + fp + fn));
 		pc = (float)(tp  / (tp + fp));
 		rc = (float)(tp / (tp + fn));
